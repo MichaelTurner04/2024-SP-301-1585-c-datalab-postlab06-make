@@ -11,7 +11,9 @@ program: ${OBJECTS}
 .PHONY: debug
 debug: CFLAGS = -g -Wall --pedantic-errors
 debug: program
+
 .PHONY: clean
+
 clean:
 	-@rm -f program
 	-@rm -f ${OBJECTS}
