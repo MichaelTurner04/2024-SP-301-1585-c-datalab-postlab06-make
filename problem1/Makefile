@@ -1,5 +1,5 @@
 program: main.o funcs.o TrianglePrinter.o
-	g++ main.o funcs.o TrianglePrinter -o program
+	g++ main.o funcs.o TrianglePrinter.o -o program
 main.o: main.cpp funcs.h TrianglePrinter.h
 	g++ -c main.cpp
 funcs.o: funcs.cpp funcs.h
@@ -8,6 +8,6 @@ TrianglePrinter.o: TrianglePrinter.cpp TrianglePrinter.h
 	g++ -c TrianglePrinter.cpp
 .PHONY: clean
 
-clean: 
+clean:
 	-@rm -f program
 	-@rm -f *.o
