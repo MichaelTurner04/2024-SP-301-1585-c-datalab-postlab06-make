@@ -1,5 +1,5 @@
 CPP = g++
-CFLAGS = -Wall --pedantic-errors -02
+CFLAGS = -Wall --pedantic-errors -O2
 SOURCES = $(wildcard *.cpp)
 HEADERS = $(wildcard *.h)
 OBJECTS = $(SOURCES:%.cpp=%.o)
@@ -8,6 +8,9 @@ program: ${OBJECTS}
 	${CPP} ${CFLAGS} ${OBJECTS} -o program
 %.o: %.cpp ${HEADERS}
 	${CPP} ${CFLAGS} -c $<
+.PHONY: debug
+debug: CFLAGS = -g -Wall --pedantic-errors
+debug: program
 .PHONY: clean
 clean:
 	-@rm -f program
